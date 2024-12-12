@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, ImageBackground, Image, TextInput, Touchable, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, ImageBackground, Image, TextInput, Touchable, TouchableOpacity,SafeAreaView } from 'react-native'
 import React, { useState } from 'react'
 import imageC from '../../../../assets/images/imageC'
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -10,6 +10,7 @@ import { useSafeAreaFrame } from 'react-native-safe-area-context';
 
 import { collection, addDoc, doc, updateDoc } from "firebase/firestore";
 import { db, auth } from '@/src/app/firebaseConfig';
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 
@@ -79,6 +80,7 @@ const ListingPage = ({ }: { title: string, id: 'string' }) => {
             alert('Crop Listed Successfully !');
 
 
+
             setAddress('');
             setDescription('');
             setDod('');
@@ -87,7 +89,7 @@ const ListingPage = ({ }: { title: string, id: 'string' }) => {
             setState('');
             setQuantity('');
             setPrice('');
-            router.replace('./SelectVeg');
+            router.replace('./MyProductsVeg');
 
         } catch (error) {
             alert("Error in Listing Crop" + error.message)
@@ -112,16 +114,21 @@ const ListingPage = ({ }: { title: string, id: 'string' }) => {
 
 
     return (
-        <View style={styles.container}>
+        
+
+        <ScrollView style={styles.container}>
             <View style={styles.topContainer}>
-                <View style={{ display: 'flex', flexDirection: 'row' }}>
+                <View style={{ display: 'flex', flexDirection: 'row',width:'100%' }}>
+                   <View style={{width:'80%',height:'40%'}}>
 
                     <Image source={require('../../../../assets/images/vegtables.png')} style={styles.image}></Image>
-                    <View style={{ marginTop: 10 }}>
+                   </View>
+                   
+                    <View style={{ marginTop: 10 ,width:'57%',marginLeft:-90,display:'flex'}}>
 
-                        <Text style={{ fontSize: 17, fontWeight: '400', marginTop: 1,marginLeft:-2 }}> Vegetable id = {itemId}</Text>
+                        <Text style={{ fontSize: 12, fontWeight: '400', marginTop: 1,marginLeft:-2 }}> Vegetable id = {itemId}</Text>
 
-                        <View style={styles.container}>
+                        <View style={styles.choosecontainer}>
                         
                             <Text style={styles.headerText}>Choose Mode:</Text>
                             <View style={styles.radioContainer}>
@@ -145,11 +152,12 @@ const ListingPage = ({ }: { title: string, id: 'string' }) => {
                     </View>
                 </View>
 
+            </View>
+
                 <View style={styles.title}>
                     <Text style={styles.titleTxt}>{itemtitle}</Text>
-                    <Text style={{ fontSize: 14, fontWeight: '400', marginTop: 0, marginLeft: -20 }}> {itemtitle} market rate is  = {itemRate}</Text>
+                    <Text style={{ fontSize: 10, fontWeight: '400', marginTop: 0, marginLeft:'-25%' }}> {itemtitle} market rate is  = {itemRate}</Text>
                     </View>
-            </View>
 
 
 
@@ -165,11 +173,11 @@ const ListingPage = ({ }: { title: string, id: 'string' }) => {
 
 <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>   
                 <View style={{ marginTop: 5 }}>
-                    <Text style={{ fontSize: 17, fontWeight: '500' }}>Quantity in KG</Text>
+                    <Text style={{ fontSize: 14, fontWeight: '500' }}>Quantity in KG</Text>
                     <TextInput
                         value={Quantity}
                         onChangeText={setQuantity}
-                        placeholder='Quantity in Kg' style={{ backgroundColor: '#BDE7CF', borderRadius: 20, height: 45, width: 230, marginTop: 1, fontSize: 17, paddingLeft: 10 }} />
+                        placeholder='Quantity in Kg' style={{ backgroundColor: '#BDE7CF', borderRadius: 20, height: 45, width:'100%', marginTop: 1, fontSize: 17, paddingLeft: 10 }} />
                 </View>
                 <View style={{ marginTop: 5, marginLeft: 20 }}>
                         <Text style={{ fontSize: 15, fontWeight: '500', marginLeft: 1 }}>Rating /10</Text>
@@ -183,54 +191,54 @@ const ListingPage = ({ }: { title: string, id: 'string' }) => {
                 </View>
 
 
-                <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-                    <View style={{ marginTop: 5 }}>
-                        <Text style={{ fontSize: 17, fontWeight: '500' }}>Price Per KG</Text>
+                <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' ,width:'100%'}}>
+                    <View style={{ marginTop: 5 ,width:'50%'}}>
+                        <Text style={{ fontSize: 14, fontWeight: '500' }}>Price Per KG</Text>
                         <TextInput
                             value={price}
                             onChangeText={setPrice}
-                            placeholder='Demanding Price Per Kg' style={{ backgroundColor: '#BDE7CF', borderRadius: 20, height: 45, width: 170, marginTop: 1, fontSize: 15, paddingLeft: 10 }} />
+                            placeholder='Demanding Price Per Kg' style={{ backgroundColor: '#BDE7CF', borderRadius: 20, height: 45, width:'100%', marginTop: 1, fontSize: 15, paddingLeft: 10,marginLeft:10 }} />
                     </View>
 
-                    <View style={{ marginTop: 5, marginLeft: 20 }}>
-                        <Text style={{ fontSize: 17, fontWeight: '500', marginLeft: 10 }}>Date of Delivery</Text>
+                    <View style={{ marginTop: 5, marginLeft: 20 ,width:'50%'}}>
+                        <Text style={{ fontSize: 14, fontWeight: '500', marginLeft: 10 }}>Date of Delivery</Text>
                         <TextInput
                         
                             value={dod}
                             onChangeText={setDod}
                             
-                            placeholder='Date' style={{ backgroundColor: '#BDE7CF', borderRadius: 20, height: 45, width: 170, marginTop: 1, fontSize: 15, paddingLeft: 10 }} />
+                            placeholder='DD/MM/YYYY' style={{ backgroundColor: '#BDE7CF', borderRadius: 20, height: 45, width:'90%', marginTop: 1, fontSize: 15, paddingLeft: 10 }} />
                     </View>
                 </View>
 
 
-                <View style={{ marginTop: 5 }}>
-                    <Text style={{ fontSize: 17, fontWeight: '500' }}>State</Text>
+                <View style={{ marginTop: 1 ,width:'100%'}}>
+                    <Text style={{ fontSize: 14, fontWeight: '500' }}>State</Text>
                     <TextInput
                     autoCapitalize="characters"
                         value={state}
                         onChangeText={setState}
-                        placeholder='State' style={{ backgroundColor: '#BDE7CF', borderRadius: 20, height: 45, width: 370, marginTop: 1, fontSize: 15, paddingLeft: 10 }} />
+                        placeholder='State' style={{ backgroundColor: '#BDE7CF', borderRadius: 20, height: 45, width:'90%', marginTop: 1, fontSize: 15, paddingLeft: 10 }} />
                 </View>
 
 
 
-                <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-                    <View style={{ marginTop: 7 }}>
-                        <Text style={{ fontSize: 17, fontWeight: '500' }}>Phone number</Text>
+                <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between',width:'100%' }}>
+                    <View style={{ marginTop: 7,width:'55%' }}>
+                        <Text style={{ fontSize: 14, fontWeight: '500' }}>Phone number</Text>
                         <TextInput
                             value={phone}
                             onChangeText={setPhone}
-                            placeholder='Phone Number' style={{ backgroundColor: '#BDE7CF', borderRadius: 20, height: 45, width: 200, marginTop: 1, fontSize: 15, paddingLeft: 10 }} />
+                            placeholder='Phone Number' style={{ backgroundColor: '#BDE7CF', borderRadius: 20, height: 45, width:'100%', marginTop: 1, fontSize: 15, paddingLeft: 10 }} />
                     </View>
 
 
-                    <View style={{ marginTop: 7, marginLeft: 20 }}>
-                        <Text style={{ fontSize: 17, fontWeight: '500' }}>Pin Code</Text>
+                    <View style={{ marginTop: 5, marginLeft: 20 ,width:'30%'}}>
+                        <Text style={{ fontSize: 14, fontWeight: '500' }}>Pin Code</Text>
                         <TextInput
                             value={pinCode}
                             onChangeText={setPinCode}
-                            placeholder='Pin Code' style={{ backgroundColor: '#BDE7CF', borderRadius: 20, height: 45, width: 130, marginTop: 1, fontSize: 15, paddingLeft: 10 }} />
+                            placeholder='Pin Code' style={{ backgroundColor: '#BDE7CF', borderRadius: 20, height: 45, width:'100%', marginTop: 1, fontSize: 15, paddingLeft: 10 }} />
                     </View>
                 </View>
                 <View style={{ marginTop: 7, }}>
@@ -244,7 +252,7 @@ const ListingPage = ({ }: { title: string, id: 'string' }) => {
                 <Text style={{ fontSize: 18, fontWeight: '600', marginTop: 10 }}>Total Rupees :- {total}</Text>
 
                 <TouchableOpacity style={styles.addbtn} onPress={addProduct}>
-                    <Text style={{ fontSize: 25, color: 'white', fontWeight: '500' }}> ADD </Text>
+                    <Text style={{ fontSize: 18, color: 'white', fontWeight: '700' }}> ADD </Text>
                 </TouchableOpacity>
 
 
@@ -257,59 +265,67 @@ const ListingPage = ({ }: { title: string, id: 'string' }) => {
                     <AntDesign name="leftsquare" color="green" size={44} />
                 </TouchableOpacity >
             </View>
-        </View>
+        </ScrollView>
+        
     )
 }
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        height:'100%',
+        width:'100%',
+        position:'relative'
     },
     topContainer: {
-        height: 200,
+        
+        height: 140,
+        width:'100%',
         backgroundColor: '#89fc00'
     },
     bottomContainer: {
-        marginTop: 60,
-
+        
+        marginTop:'8%',
+        width:'100%',
         height: 700,
         display: 'flex',
         alignItems: 'flex-start',
         padding: 10,
     },
     image: {
-        height: 300,
-        width: 300,
-        borderRadius: 150,
-        marginTop: -70,
-        marginLeft: -70
+        height:'356%',
+        width: '81%',
+        borderRadius: 200,
+        marginTop:'-13%',
+        marginLeft: '-15%'
     },
     title: {
-        marginLeft: 230,
-        marginTop: -40,
+        marginLeft: "60%",
+        marginTop: 0,
+        height:50
         
     },
     titleTxt: {
-        fontSize: 40,
+        fontSize: 25,
         fontWeight: '600'
     },
     txtInput: {
         backgroundColor: '#BDE7CF',
-        height: 80,
-        width: 350,
+        height: '10%',
+        width:'95%',
         borderRadius: 20,
         fontSize: 18,
     },
     addbtn: {
         height: 50,
         backgroundColor: '#28AC60',
-        width: 150,
+        width:'30%',
         borderRadius: 20,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         elevation: 10,
         marginTop: 10,
-        marginLeft: 240,
+        marginLeft: 230,
     },
     stackIcon: {
         height: 50,
@@ -318,7 +334,7 @@ const styles = StyleSheet.create({
         marginTop: -43
     },
     headerText: {
-        fontSize: 16,
+        fontSize: 12,
         marginBottom: 2,
         marginLeft:4,
         marginTop:1,
@@ -326,33 +342,35 @@ const styles = StyleSheet.create({
     radioContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        width: 160,
+        width: 100,
         marginLeft:4
     },
     radioButton: {
         flexDirection: 'row',
         alignItems: 'center',
         marginBottom: 2,
+        height:20
     },
     outerCircle: {
-        height: 24,
-        width: 24,
+        height: 18,
+        width: 18,
         borderRadius: 12,
         borderWidth: 2,
         borderColor: '#6200ee',
         justifyContent: 'center',
         alignItems: 'center',
-        marginRight: 10,
+        marginRight: 2,
     },
     innerCircle: {
-        height: 12,
-        width: 12,
+        height: 10,
+        width: 10,
         borderRadius: 6,
-        backgroundColor: '#6200ee',
+        backgroundColor: 'green',
     },
     radioLabel: {
-        fontSize: 16,
+        fontSize: 10,
         color: '#333',
+        marginRight:10
     },
     selectedText: {
         marginTop: 2,
@@ -360,6 +378,9 @@ const styles = StyleSheet.create({
         color: '#333',
         marginLeft:-30
     },
+    choosecontainer:{
+        width:'40%',
+    }
 
 })
 export default ListingPage

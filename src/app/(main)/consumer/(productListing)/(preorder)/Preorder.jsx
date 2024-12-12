@@ -210,7 +210,7 @@ const styles = StyleSheet.create({
   vegbtn: {
     height: 35,
     width: '50%',
-    backgroundColor: '#29bf12',
+    backgroundColor: 'green',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -223,7 +223,6 @@ const styles = StyleSheet.create({
   fruitbtn: {
     height: 34.5,
     width: '50%',
-
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -307,7 +306,7 @@ const styles = StyleSheet.create({
     elevation:6,
     justifyContent:'center',
     alignItems:'center'
-  }
+  },
 
 
 

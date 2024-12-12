@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Link, Redirect } from 'expo-router'
 
 import AppIntroSlider from 'react-native-app-intro-slider'
-
+import RegisterScreen from './register/RegisterScreen'
 const index = () => {
 
 
@@ -12,22 +12,22 @@ const index = () => {
   const slides = [
     {
       key: 1,
-      title: 'Welcome to \n FarmEco',
+      title: 'Welcome to FarmEco',
       text: 'A place where you can Buy or Sell Crpos',
       image: require('../../assets/images/introman1.png'),
       backgroundColor: '#59b2ab',
     },
     {
       key: 2,
-      title: 'Title 2',
-      text: 'Other cool stuff',
+      title: 'Farmers',
+      text: 'We welcome you to sell your Products',
       image: require('../../assets/images/introman2.png'),
       backgroundColor: '#febe29',
     },
     {
       key: 3,
-      title: 'Rocket guy',
-      text: 'I\'m already out of descriptions\n\nLorem ipsum bla bla bla',
+      title: 'Consumer',
+      text: 'Buy and PreOrders their demand \n products From Us',
       image: require('../../assets/images/introman3.png'),
       backgroundColor: '#22bcb5',
     }
@@ -101,12 +101,13 @@ const styles = StyleSheet.create({
     padding:20,
     height:'40%',
     display:'flex',
+    width:'100%',
     flex:1,
     justifyContent:'center',
     alignItems:'center'
   },
   Headingtxt:{
-    fontSize:35,
+    fontSize:25,
     fontWeight:'700',
    
   },

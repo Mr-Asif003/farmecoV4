@@ -65,10 +65,10 @@ const handleSubmit=async()=>{
 
         // Redirect user based on their role
         if (role === "Farmer") {
-          router.replace('../../(main)/farmer');
+          router.replace('../../(main)/farmer/(tabs)');
           alert('Succesfully Login with Farmer Account')
         } else if (role === "Consumer") {
-          router.replace("../../(main)/consumer");
+          router.replace("../../(main)/consumer/(tabs)");
           alert('Succesfully Login with Consumer  Account')
         } else if (role === "Admin") {
           router.replace("../../(main)/admin");
@@ -241,10 +241,10 @@ const styles = StyleSheet.create({
     padding: 5
   },
   txtInput: {
-    height: 45,
-    width:'100%',
+    height: 50,
+    width: 260,
     color: 'green',
-    fontSize:17,
+    fontSize: 13,
   },
   inputContainer: {
     display: 'flex',

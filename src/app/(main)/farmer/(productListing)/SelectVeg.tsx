@@ -19,7 +19,8 @@ import { SelectVegDB } from '@/src/Database/adminDB/selectVegDB';
 //fonticon
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-
+import Categories from '../(tabs)/Categories';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const SelectVeg = () => {
   const navigation = useNavigation()
@@ -72,6 +73,7 @@ const  passItemData=(itemId,itemRate,itemtitle)=>{
   );
 
   return (
+    
     <View style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity
@@ -92,10 +94,13 @@ const  passItemData=(itemId,itemRate,itemtitle)=>{
           <TouchableOpacity style={styles.fruitbtn} onPress={() => router.replace('./SelectFruits')}><Text style={styles.fruittxt} >Fruits</Text></TouchableOpacity>
         </View>
       </View>
+
       <ScrollView>
         <View style={styles.tabBar}><VegTabBarOption /></View>
         <View style={styles.mainContainer}>
           
+      <SafeAreaView>
+
         <FlatList
             data={SelectVegDB}
             renderItem={renderItem}
@@ -105,11 +110,12 @@ const  passItemData=(itemId,itemRate,itemtitle)=>{
             showsHorizontalScrollIndicator={false} // Optional: Hides the horizontal scrollbar
             contentContainerStyle={styles.listContainer}
           />
+      </SafeAreaView>
          
         </View>
       </ScrollView>
       <View style={styles.backTruck}> 
-      <TouchableOpacity style={styles.stackIcon} onPress={() => router.replace('./SelectFruits')}>
+      <TouchableOpacity style={styles.stackIcon} onPress={() => router.replace('../(tabs)/Categories')}>
                     <AntDesign name="leftsquare" color="green" size={44} />
                 </TouchableOpacity >
       </View>
@@ -126,7 +132,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   header: {
-    backgroundColor: '#89fc00',
+    backgroundColor: '#28AC60',
     height: 120
   },
   tabBar: {
@@ -136,7 +142,7 @@ const styles = StyleSheet.create({
 
   mainContainer: {
     height:'100%',
-    width:500,
+    width:'100%',
     display:'flex',
   flexDirection:'row',
   justifyContent:'center'
@@ -157,7 +163,7 @@ const styles = StyleSheet.create({
     fontWeight: '400'
   },
   tranButton: {
-    backgroundColor: '#89fc00',
+    backgroundColor: '#28AC60',
     marginBottom: 10,
     padding: 5
   },
@@ -184,11 +190,11 @@ const styles = StyleSheet.create({
 
   },
   fruittxt: {
-    fontSize: 22,
+    fontSize: 18,
     fontWeight: '400'
   },
   vegtxt: {
-    fontSize: 25,
+    fontSize: 20,
     fontWeight: '500',
     color: 'white'
   },
@@ -202,18 +208,18 @@ const styles = StyleSheet.create({
 
   },
   card: {
-    height:175,
+    height:'90%',
     backgroundColor: '#fff',
     borderRadius: 8,
     padding: 16,
     marginRight: 16, // Adds space between cards
-    width: 170, // Set a fixed width for the horizontal cards
+    width: '46%', // Set a fixed width for the horizontal cards
     shadowColor: '#000',
     shadowOpacity: 0.1,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 8,
     elevation: 1,
-    margin:10
+    marginTop:10
   },
   image: {
     width: '100%',
@@ -230,6 +236,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   details:{
+    width:135,
     display:'flex',
     flexDirection:'row',
     padding:10,
@@ -237,10 +244,12 @@ const styles = StyleSheet.create({
   },
   txt:{
     fontSize:16,
+    marginLeft:-5,
+    
     fontWeight:'600'
   },
   backTruck:{
-    transform: [{ rotate:'3600deg' }]
+    marginLeft:'3%',
   },
   stackIcon: {
     height: 50,

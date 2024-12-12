@@ -76,6 +76,17 @@ export default function Layout() {
           
           
         />
+         <Drawer.Screen
+          name="(subscription)" // This is the name of the page and must match the url from root
+          options={{
+            drawerLabel: "Subscription Farming",
+            title: 'SubsCription  ',
+            headerShown:false,
+            headerBackButtonDisplayMode:'default'
+          }}
+          
+          
+        />
 
       </Drawer>
     </GestureHandlerRootView>

@@ -126,7 +126,7 @@ const COrMyProductsVeg = () => {
         <View>
           <View><Text style={styles.hello}> Hello {userName}</Text></View>
         </View>
-        <Text style={{ fontSize: 25, fontWeight: '600' }}>My Vegetable Orders</Text>
+        <Text style={{ fontSize: 25, fontWeight: '600',marginLeft:8 }}>My Vegetable Orders</Text>
 
       </View>
       <View style={styles.tranButton}>
@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   header: {
-    backgroundColor: '#89fc00',
+    backgroundColor: '#28AC60',
     height: 120
   },
   tabBar: {
@@ -204,7 +204,8 @@ const styles = StyleSheet.create({
   },
   hello: {
     fontSize: 20,
-    fontWeight: '500'
+    fontWeight: '500',
+    marginLeft:8
   },
   welcome: {
     marginTop: 10,
@@ -212,14 +213,14 @@ const styles = StyleSheet.create({
     fontWeight: '400'
   },
   tranButton: {
-    backgroundColor: '#89fc00',
+    backgroundColor: '#28AC60',
     marginBottom: 10,
     padding: 5
   },
   vegbtn: {
     height: 35,
     width: '50%',
-    backgroundColor: '#29bf12',
+    backgroundColor: 'green',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -239,11 +240,11 @@ const styles = StyleSheet.create({
 
   },
   fruittxt: {
-    fontSize: 22,
+    fontSize: 18,
     fontWeight: '400'
   },
   vegtxt: {
-    fontSize: 25,
+    fontSize: 22,
     fontWeight: '500',
     color: 'white'
   },
@@ -251,7 +252,7 @@ const styles = StyleSheet.create({
     height: 34,
     display: 'flex',
     flexDirection: 'row',
-    backgroundColor: '#f7cad0',
+    backgroundColor: '#b7efc5',
     borderRadius: 20,
     marginHorizontal: 10,
 

@@ -3,6 +3,7 @@ import React from 'react'
 
 import { useNavigation } from '@react-navigation/native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import Entypo from 'react-native-vector-icons/Entypo';
 
 const Header = ({userName ,address}:{userName:string ,address:string}) => {
   const navigation = useNavigation();
@@ -14,7 +15,7 @@ const Header = ({userName ,address}:{userName:string ,address:string}) => {
         </View>
         <View style={styles.avatarcontainer}>
           <TouchableOpacity>
-            <Image source={require('@/src/assets/images/avatarImage.png')} style={styles.avatarImage} />
+            <Image source={require('@/src/assets/images/avatar.png')} style={styles.avatarImage} />
           </TouchableOpacity>
         </View>
       </View>
@@ -23,16 +24,16 @@ const Header = ({userName ,address}:{userName:string ,address:string}) => {
           style={styles.button}
           onPress={() => navigation.openDrawer()} // Opens the right-side drawer
         >
-          <FontAwesome name="align-left" color="white" size={24} />
+          <Entypo name="menu" color="#000" size={24} />
         </TouchableOpacity>
 
         <View style={styles.hicontainer}>
         <TouchableOpacity style={styles.hitextcontainer}>
-          <Text style={styles.greethi}>Hi</Text>
-          <Text style={styles.greetname}> {userName}</Text>
+          <Text style={styles.greethi}>Hi,</Text>
+          <Text style={styles.greetname}>{userName}</Text>
           
         </TouchableOpacity>
-        <Text style={{fontSize:14}}>{address}</Text>
+        <Text style={{fontSize:8,marginLeft:30}}>{address}</Text>
 
         </View>
       </View>
@@ -100,7 +101,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   hicontainer:{
-  marginRight:20,
+  marginRight:10,
   marginBottom:20
   },
   hitextcontainer:{
@@ -112,11 +113,11 @@ const styles = StyleSheet.create({
   },
   greetname:{
     marginTop:10,
-    fontSize:25,
+    fontSize:15,
     fontWeight:'500'
   },
   greethi:{
-    fontSize:23,
+    fontSize:13,
     
     margin:1,
   }

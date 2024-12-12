@@ -225,9 +225,9 @@ const styles = StyleSheet.create({
      color:'white'
   },
   vegtxt:{
-    fontSize:22,
+    fontSize:19,
     fontWeight:'400',
-    color:'black'
+    color:'black',
   },
   btnContainer:{
     height: 34,

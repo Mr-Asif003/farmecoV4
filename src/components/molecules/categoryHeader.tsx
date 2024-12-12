@@ -14,7 +14,7 @@ const CategoryHeader = () => {
         </View>
         <View style={styles.avatarcontainer}>
           <TouchableOpacity>
-            <Image source={require('@/src/assets/images/avatarImage.png')} style={styles.avatarImage} />
+            <Image source={require('@/src/assets/images/avatar.png')} style={styles.avatarImage} />
           </TouchableOpacity>
         </View>
       </View>

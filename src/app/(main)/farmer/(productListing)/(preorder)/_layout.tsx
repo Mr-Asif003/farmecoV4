@@ -8,6 +8,7 @@ const _layout = () => {
     <Stack.Screen name='fruitPreorder' options={{headerShown:false}}/>
     <Stack.Screen name='AcceptedFruitPreoder' options={{headerShown:false}}/>
     <Stack.Screen name='AcceptedPreorder' options={{headerShown:false}}/>
+    <Stack.Screen name='Pdetails' options={{headerShown:false}}/>
    </Stack>
   )
 }

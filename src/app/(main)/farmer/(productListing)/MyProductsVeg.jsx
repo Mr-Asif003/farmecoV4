@@ -97,7 +97,15 @@ const MyProductsVeg = () => {
           <Text style={{ fontSize: 16, fontWeight: '500' }}>DOD:- {item.Dod}</Text>
 
         </View>
-        <TouchableOpacity style={styles.viewDetails}><Text style={{ fontSize: 15, }}>View Status</Text></TouchableOpacity>
+        <TouchableOpacity style={{height: 40,
+    width: 100,
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10,
+    elevation: 2,
+    marginLeft: 100,
+    marginTop:10}}><Text style={{ fontSize: 13, }}>View Status</Text></TouchableOpacity>
       </View>
     </View>
 
@@ -122,15 +130,15 @@ const MyProductsVeg = () => {
           <FontAwesome name="align-left" color="#000" size={24} />
         </TouchableOpacity>
         <View>
-          <View><Text style={styles.hello}> Hello {userName}</Text></View>
+          <View><Text style={{fontSize:19}}> Hello {userName}</Text></View>
         </View>
-        <Text style={{ fontSize: 25, fontWeight: '600' }}>My Vegetable  Products</Text>
+        <Text style={{ fontSize: 18, fontWeight: '600' }}>My Vegetable  Products</Text>
 
       </View>
       <View style={styles.tranButton}>
         <View style={styles.btnContainer}>
-          <TouchableOpacity style={styles.vegbtn}  ><Text style={styles.vegtxt} >Vegetables</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.fruitbtn} onPress={() => router.replace('./MyProducts')}  ><Text style={styles.fruittxt} >Fruits</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.vegbtn}  ><Text style={{ fontSize: 20, fontWeight: '500',color: 'white'}} >Vegetables</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.fruitbtn} onPress={() => router.replace('./MyProducts')}  ><Text style={{fontSize:15}} >Fruits</Text></TouchableOpacity>
         </View>
       </View>
 
@@ -159,39 +167,6 @@ const MyProductsVeg = () => {
             )}
           </View>
 
-          <View style={{ elevation: 2, borderRadius: 20, backgroundColor: '#f0fff1', marginTop: 10, padding: 10, margin: 8 }}>
-            <View>
-              <Text>Product id :- </Text>
-            </View>
-
-            <View style={{ marginLeft: 10, display: 'flex', flexDirection: 'row', marginBottom: 1, marginTop: 10 }}>
-              <View style={{ height: 100, width: 100, }}>
-                <Image style={{ height: 100, width: 100, borderRadius: 10 }} source={require('../../../../assets/images/vegtables.png')} />
-              </View>
-
-              <View style={{ marginLeft: 10 }}>
-                <Text style={styles.productName}>itemname</Text>
-
-                <View style={{ marginLeft: 10 }}>
-                  <Text style={{ fontSize: 16, fontWeight: '500' }}>Price:- </Text>
-
-                  <Text style={{ fontSize: 16, fontWeight: '500' }}>Quantity:- </Text>
-                  <Text style={{ fontSize: 16, fontWeight: '500' }}>DOD:- </Text>
-
-                </View>
-                <TouchableOpacity style={styles.viewDetails}><Text style={{ fontSize: 15, }}>View Status</Text></TouchableOpacity>
-              </View>
-            </View>
-
-
-
-
-
-            {/* {item.cropImage && (
-            <Image source={{ uri: item.cropImage }} style={styles.image} />
-            )} */}
-
-          </View>
 
 
 
@@ -217,7 +192,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   header: {
-    backgroundColor: '#89fc00',
+    backgroundColor: '#28AC60',
     height: 120
   },
   tabBar: {
@@ -244,7 +219,7 @@ const styles = StyleSheet.create({
     fontWeight: '400'
   },
   tranButton: {
-    backgroundColor: '#89fc00',
+    backgroundColor: '#28AC60',
     marginBottom: 10,
     padding: 5
   },
@@ -283,7 +258,7 @@ const styles = StyleSheet.create({
     height: 34,
     display: 'flex',
     flexDirection: 'row',
-    backgroundColor: '#f7cad0',
+    backgroundColor: '#b7efc5',
     borderRadius: 20,
     marginHorizontal: 10,
 
@@ -330,7 +305,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 10,
     elevation: 2,
-    marginLeft: 160,
+    marginLeft: 120,
     marginTop: -10
   },
   card:{

@@ -77,7 +77,7 @@ const SelectFruits = () => {
        <View>
         <View><Text style={styles.hello}> Hello {userName}</Text></View>
        </View>
-       <Text style={styles.welcome}>Welcome to the Fruit PreOrder Store</Text>
+       <Text style={styles.welcome}> Fruit PreOrder Store</Text>
         
       </View>
       <View style={styles.tranButton}>
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   header: {
-    backgroundColor: '#d80032',
+    backgroundColor: '#26AC60',
     height: 120
   },
   tabBar: {
@@ -143,10 +143,10 @@ const styles = StyleSheet.create({
     marginTop:10,
   fontSize:20,
   fontWeight:'500',
-  color:'white'
+  color:'black'
   },
   tranButton:{
-    backgroundColor: '#d80032',
+    backgroundColor: '#26AC60',
    marginBottom:10,
     padding:5
   },
@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
   
     height:35,
     width:'50%',
-    backgroundColor:'#9d0208',
+    backgroundColor:'green',
     display:'flex',
     justifyContent:'center',
      alignItems:'center',
@@ -174,12 +174,12 @@ const styles = StyleSheet.create({
     
   },
   fruittxt:{
-    fontSize:25,
+    fontSize:22,
     fontWeight:'500',
      color:'white'
   },
   vegtxt:{
-    fontSize:22,
+    fontSize:18,
     fontWeight:'400',
     color:'black'
   },
@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
     height: 34,
     display:'flex',
     flexDirection:'row',
-    backgroundColor:'#f7cad0',
+    backgroundColor:'#b7efc5',
     borderRadius:20,
     marginHorizontal:10,
   
@@ -198,17 +198,17 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 16,
     marginRight: 16, // Adds space between cards
-    width: 170, // Set a fixed width for the horizontal cards
+    width:'43%', // Set a fixed width for the horizontal cards
     shadowColor: '#000',
     shadowOpacity: 0.1,
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: { width: 2, height: 2 },
     shadowRadius: 8,
     elevation: 1,
     margin:10
   },
   image: {
     width: '100%',
-    height: 80, // Adjust the height for horizontal layout
+    height: 80,  // Adjust the height for horizontal layout
     borderRadius: 8,
     marginBottom: 12,
   },

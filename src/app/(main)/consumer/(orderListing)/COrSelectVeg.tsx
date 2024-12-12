@@ -83,7 +83,7 @@ const  passItemData=(itemId,itemRate,itemtitle)=>{
         <View>
           <View><Text style={styles.hello}> Hello {userName}</Text></View>
         </View>
-        <Text style={styles.welcome}>Welcome to the Vegetable Order store</Text>
+        <Text style={styles.welcome}> Vegetable Order store</Text>
 
       </View>
       <View style={styles.tranButton}>
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   header: {
-    backgroundColor: '#89fc00',
+    backgroundColor: '#26AC60',
     height: 120
   },
   tabBar: {
@@ -149,15 +149,17 @@ const styles = StyleSheet.create({
   },
   hello: {
     fontSize: 20,
-    fontWeight: '500'
+    fontWeight: '500',
+    marginLeft:10
   },
   welcome: {
     marginTop: 10,
     fontSize: 20,
-    fontWeight: '400'
+    fontWeight: '400',
+    marginLeft:10
   },
   tranButton: {
-    backgroundColor: '#89fc00',
+    backgroundColor: '#26AC60',
     marginBottom: 10,
     padding: 5
   },
@@ -184,11 +186,11 @@ const styles = StyleSheet.create({
 
   },
   fruittxt: {
-    fontSize: 22,
+    fontSize: 18,
     fontWeight: '400'
   },
   vegtxt: {
-    fontSize: 25,
+    fontSize: 22,
     fontWeight: '500',
     color: 'white'
   },
@@ -202,12 +204,12 @@ const styles = StyleSheet.create({
 
   },
   card: {
-    height:175,
+    height:'80%',
     backgroundColor: '#fff',
     borderRadius: 8,
     padding: 16,
     marginRight: 16, // Adds space between cards
-    width: 170, // Set a fixed width for the horizontal cards
+    width: "30%", // Set a fixed width for the horizontal cards
     shadowColor: '#000',
     shadowOpacity: 0.1,
     shadowOffset: { width: 0, height: 2 },

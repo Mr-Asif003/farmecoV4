@@ -278,9 +278,9 @@ const styles = StyleSheet.create({
   },
   txtInput: {
     height: 50,
-    width: '100%',
+    width: 260,
     color: 'green',
-    fontSize: 17,
+    fontSize: 13,
   },
   inputContainer: {
     display: 'flex',

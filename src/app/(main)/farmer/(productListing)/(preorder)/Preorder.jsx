@@ -10,11 +10,14 @@ import { doc, getDoc } from "firebase/firestore";
 import { trendingProducts, seasonalProducts, closureImgs } from '../../fdb/trendingProduct'
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
-import { useRouter } from 'expo-router';
+import { useRouter, useLocalSearchParams } from 'expo-router';
 
 import MyProductTabBarOptions from '@/src/components/molecules/MyProductsTabBar';
 import { collection, query, where, onSnapshot ,getDocs} from "firebase/firestore";
 import AcceptedPreOrder from './AcceptedFruitPreoder'
+
+
+
 
 
 const Preorder = () => {
@@ -93,13 +96,13 @@ const Preorder = () => {
         <Text style={styles.productName}>{item.Name}</Text>
 
         <View style={{ marginLeft: 10 }}>
-
-          <Text style={{ fontSize: 16, fontWeight: '500' }}>Quantity:-{item.Quantity} </Text>
-          <Text style={{ fontSize: 16, fontWeight: '500' }}>DOD:- {item.Dod}</Text>
-          <Text style={{ fontSize: 19, fontWeight: '500',marginLeft:-120, marginTop:20,}}>State :-{item.State}</Text>
+        <Text style={{ fontSize: 12, fontWeight: '500' }}>Price:- Rs. {item.Price}</Text>
+          <Text style={{ fontSize: 12, fontWeight: '500' }}>Quantity:-{item.Quantity} </Text>
+          <Text style={{ fontSize: 12, fontWeight: '500' }}>DOD:- {item.Dod}</Text>
+          <Text style={{ fontSize: 15, fontWeight: '500',marginLeft:-120, marginTop:20,}}>State :-{item.State}</Text>
 
         </View>
-        <TouchableOpacity style={styles.viewDetails}><Text style={{ fontSize: 15, }}>View Details</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.viewDetails} onPress={()=>router.push("./Pdetails")}><Text style={{ fontSize: 15, }}>View Details</Text></TouchableOpacity>
       </View>
     </View>
 
@@ -126,7 +129,7 @@ const Preorder = () => {
         <View>
           <View><Text style={styles.hello}> Hello {userName}</Text></View>
         </View>
-        <Text style={{ fontSize: 25, fontWeight: '600' }}>Welcome to PreOrder's </Text>
+        <Text style={{ fontSize: 25, fontWeight: '600',marginLeft:5 }}>Vegetable PreOrders </Text>
 
       </View>
       <View style={styles.tranButton}>
@@ -165,8 +168,8 @@ const Preorder = () => {
         </View>
       </ScrollView>
       <View style={styles.bottomNav}>
-        <TouchableOpacity onPress={()=>{router.replace("./Preorder") }}   style={styles.PreOrder}><Text style={{fontSize:21,fontWeight:'600',color:'green'}}        >PreOrders</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.Accept} ><Text   >Accepted</Text></TouchableOpacity>
+        <TouchableOpacity   style={styles.PreOrder}><Text style={{fontSize:21,fontWeight:'600',color:'green'}}        >PreOrders</Text></TouchableOpacity>
+        <TouchableOpacity onPress={()=>{router.replace("./AcceptedPreorder") }}   style={styles.Accept} ><Text   >Accepted</Text></TouchableOpacity>
       </View>
     </View>
   );
@@ -184,8 +187,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   header: {
-    backgroundColor: '#89fc00',
-    height: 120
+    backgroundColor: '#28AC60',
+    height: 120,
+    paddingLeft:7
   },
   tabBar: {
     height: 75,
@@ -211,14 +215,14 @@ const styles = StyleSheet.create({
     fontWeight: '400'
   },
   tranButton: {
-    backgroundColor: '#89fc00',
+    backgroundColor: '#28AC60',
     marginBottom: 10,
     padding: 5
   },
   vegbtn: {
     height: 35,
     width: '50%',
-    backgroundColor: '#29bf12',
+    backgroundColor: 'green',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -238,11 +242,11 @@ const styles = StyleSheet.create({
 
   },
   fruittxt: {
-    fontSize: 22,
+    fontSize: 17,
     fontWeight: '400'
   },
   vegtxt: {
-    fontSize: 25,
+    fontSize: 20,
     fontWeight: '500',
     color: 'white'
   },
@@ -250,7 +254,7 @@ const styles = StyleSheet.create({
     height: 34,
     display: 'flex',
     flexDirection: 'row',
-    backgroundColor: '#f7cad0',
+    backgroundColor: '#b7efc5',
     borderRadius: 20,
     marginHorizontal: 10,
 
@@ -338,7 +342,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 10,
     elevation: 2,
-    marginLeft: 160,
+    marginLeft: '40%',
     marginTop: -30
   },
 

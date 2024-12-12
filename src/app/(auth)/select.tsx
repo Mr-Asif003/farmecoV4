@@ -13,7 +13,7 @@ import ListingPage from '../(main)/farmer/(productListing)/ListingPage';
 
 import index from '../(main)/consumer/(tabs)';
 import MarketAnalysis from '../(main)/admin/MarketAnalysisDb';
-
+import Pdetails from '../(main)/farmer/(productListing)/(preorder)/Pdetails';
 
 const select = () => {
 //   const { t, i18n } = useTranslation();
@@ -27,7 +27,7 @@ const select = () => {
 
 
   return (
-    <ImageBackground source={require('../../assets/images/stylebg.png')} resizeMode="cover"  style={styles.bgContainer}>
+    <ImageBackground source={require('../../assets/images/ba.png')} resizeMode="cover"  style={styles.bgContainer}>
 
      
 <Link href={'/register/RegisterScreen'}>wlecom register </Link>
@@ -48,6 +48,8 @@ const select = () => {
 <Link href={'../../../Account'}>got o account</Link>
 
 <Link href={'../(main)/admin/MarketAnalysisDb'}>go to admin</Link>
+<Link href={'../(main)/farmer/(productListing)/(preorder)/Pdetails'}>go to pdetails</Link>
+
       </ImageBackground>
   
 

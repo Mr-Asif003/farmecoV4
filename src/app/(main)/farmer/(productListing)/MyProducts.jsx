@@ -1,4 +1,4 @@
-import { FlatList, View, Text, StyleSheet, ScrollView, Image, TouchableOpacity } from 'react-native'
+import { FlatList, View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, VirtualizedList,SectionList } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { Container } from 'lucide-react-native'
 
@@ -14,10 +14,12 @@ import { useRouter } from 'expo-router';
 import FruitTabBarOption from '@/src/components/molecules/fruitTabBar';
 import MyProductTabBarOptions from '@/src/components/molecules/MyProductsTabBar';
 import { collection, query, where, onSnapshot } from "firebase/firestore";
+import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 
-const  MyProducts = () => {
+
+const MyProducts = () => {
   const navigation = useNavigation()
-  const router=useRouter()
+  const router = useRouter()
   //extracting name
 
   const [userName, setUserName] = useState("");
@@ -73,46 +75,46 @@ const  MyProducts = () => {
     return () => unsubscribe();
   }, []);
 
-  const renderItem= ({ item,index }) => (
-<View style={[styles.card, (index) % 3 === 0 ? styles.evenCard : styles.oddCard]}>
-      
+  const renderItem = ({ item, index }) => (
+    <View style={[styles.card, (index) % 3 === 0 ? styles.evenCard : styles.oddCard]}>
+
       <View>
         <Text>Product id :- {item.Pid}</Text>
       </View>
-  
+
       <View style={{ marginLeft: 10, display: 'flex', flexDirection: 'row', marginBottom: 1, marginTop: 10 }}>
         <View style={{ height: 100, width: 100, }}>
           <Image style={{ height: 100, width: 100, borderRadius: 10 }} source={require('../../../../assets/images/vegtables.png')} />
         </View>
-  
+
         <View style={{ marginLeft: 10 }}>
           <Text style={styles.productName}>{item.Name}</Text>
-  
+
           <View style={{ marginLeft: 10 }}>
             <Text style={{ fontSize: 16, fontWeight: '500' }}>Price:-{item.Price} </Text>
-  
+
             <Text style={{ fontSize: 16, fontWeight: '500' }}>Quantity:-{item.Quantity} </Text>
             <Text style={{ fontSize: 16, fontWeight: '500' }}>DOD:- {item.Dod}</Text>
-  
+
           </View>
           <TouchableOpacity style={styles.viewDetails}><Text style={{ fontSize: 15, }}>View Status</Text></TouchableOpacity>
         </View>
       </View>
-  
-  
-  
-  
-  
+
+
+
+
+
       {/* {item.cropImage && (
       <Image source={{ uri: item.cropImage }} style={styles.image} />
       )} */}
-  
+
     </View>
   )
 
 
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity
           style={styles.button}
@@ -120,31 +122,33 @@ const  MyProducts = () => {
         >
           <FontAwesome name="align-left" color="#000" size={24} />
         </TouchableOpacity>
-       <View>
-        <View><Text style={styles.hello}> Hello {userName}</Text></View>
-       </View>
-       <Text style={{fontSize:25,fontWeight:'600',color:'white'}}>My Fruit  Products</Text>
-        
+        <View>
+          <View><Text style={{fontSize:19}}> Hello {userName}</Text></View>
+        </View>
+        <Text style={{ fontSize: 18, fontWeight: '600' }}>My Fruit  Products</Text>
+
       </View>
       <View style={styles.tranButton}>
         <View style={styles.btnContainer}>
-        <TouchableOpacity style={styles.vegbtn} onPress={()=>router.replace('./MyProductsVeg')}  ><Text style={styles.vegtxt} >Vegetables</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.fruitbtn} ><Text style={styles.fruittxt} >Fruits</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.vegbtn} onPress={() => router.replace('./MyProductsVeg')} ><Text style={{fontSize:15}}  >Vegetables</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.fruitbtn}   ><Text   style={{ fontSize: 20, fontWeight: '500',color: 'white'}} >Fruits</Text></TouchableOpacity>
         </View>
-        </View>
-
-        {/* tabbar */}
-
-      <View style={styles.tabBar}>
-      <MyProductTabBarOptions/>
-
       </View>
 
+      {/* tabbar */}
+      <ScrollView>
+
+        <View style={styles.tabBar}>
+          <MyProductTabBarOptions />
+
+        </View>
 
 
-      <View style={styles.mainContainer}>
-      <View style={styles.Listcontainer}>
-            
+        {/* mainContainer............ */}
+        <View style={styles.mainContainer}>
+
+          <View style={styles.Listcontainer}>
+
             {userProducts.length === 0 ? (
               <Text style={styles.noDataText}>No products found</Text>
             ) : (
@@ -155,8 +159,18 @@ const  MyProducts = () => {
               />
             )}
           </View>
-      </View>
-    </ScrollView>
+
+        
+
+
+
+
+
+
+
+        </View>
+      </ScrollView>
+    </View>
   )
 }
 
@@ -169,11 +183,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   header: {
-    backgroundColor: '#ff0000',
+    backgroundColor: '#28AC60',
     height: 120
   },
   tabBar: {
-   height:75,
+    height: 75,
   },
 
 
@@ -186,61 +200,61 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginLeft: 10
   },
-  hello:{
-  fontSize:20,
-  fontWeight:'500'
+  hello: {
+    fontSize: 20,
+    fontWeight: '500'
   },
-  welcome:{
-    marginTop:10,
-  fontSize:16,
-  fontWeight:'400'
+  welcome: {
+    marginTop: 10,
+    fontSize: 16,
+    fontWeight: '400'
   },
-  tranButton:{
-    backgroundColor: '#ff0000',
-   marginBottom:10,
-    padding:5
+  tranButton: {
+    backgroundColor: '#28AC60',
+    marginBottom: 10,
+    padding: 5
   },
-  vegbtn:{
-    height:34.5,
-    width:'50%',
-   
-    display:'flex',
-    justifyContent:'center',
-    alignItems:'center',
+  vegbtn: {
+    height: 34.5,
+    width: '50%',
+
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
 
   },
-  fruitbtn:{
-  
-    height:35,
-    width:'50%',
-    backgroundColor:'#9d0208',
-    display:'flex',
-    justifyContent:'center',
-     alignItems:'center',
-   
-    
-     borderRadius:20,
-   elevation:10
-    
+  fruitbtn: {
+
+    height: 35,
+    width: '50%',
+    backgroundColor: 'green',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+
+
+    borderRadius: 20,
+    elevation: 10
+
   },
-  fruittxt:{
-    fontSize:25,
-    fontWeight:'500',
-     color:'white'
+  fruittxt: {
+    fontSize: 25,
+    fontWeight: '500',
+    color: 'white'
   },
-  vegtxt:{
-    fontSize:22,
-    fontWeight:'400',
-    color:'black'
+  vegtxt: {
+    fontSize: 22,
+    fontWeight: '400',
+    color: 'black'
   },
-  btnContainer:{
+  btnContainer: {
     height: 34,
-    display:'flex',
-    flexDirection:'row',
-    backgroundColor:'#f7cad0',
-    borderRadius:20,
-    marginHorizontal:10,
-  
+    display: 'flex',
+    flexDirection: 'row',
+    backgroundColor: '#b7efc5',
+    borderRadius: 20,
+    marginHorizontal: 10,
+
   },
   Listcontainer: {
     flex: 1,
@@ -276,8 +290,19 @@ const styles = StyleSheet.create({
     height: 100,
     marginTop: 10,
   },
-  card:{
-    elevation: 2, borderRadius: 20, backgroundColor: '#f0fff1', marginTop: 10, padding: 10, margin: 8 
+  viewDetails: {
+    height: 40,
+    width: 100,
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10,
+    elevation: 2,
+    marginLeft: 100,
+    marginTop: -10
+  },
+  card: {
+    elevation: 2, borderRadius: 20, backgroundColor: '#f0fff1', marginTop: 10, padding: 10, margin: 8
   },
   evenCard: {
     backgroundColor: '#BDE7CF', // Background for even-indexed items
@@ -286,7 +311,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F3E3B0', // Background for odd-indexed items
   },
 
-  
+
 
 
 })

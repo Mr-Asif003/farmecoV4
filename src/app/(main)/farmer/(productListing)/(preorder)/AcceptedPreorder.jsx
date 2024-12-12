@@ -126,13 +126,13 @@ const AcceptedPreorder = () => {
         <View>
           <View><Text style={styles.hello}> Hello {userName}</Text></View>
         </View>
-        <Text style={{ fontSize: 25, fontWeight: '600' }}>Welcome to PreOrder's </Text>
+        <Text style={{ fontSize: 25, fontWeight: '600',marginLeft:12 }}>Accepted Veg PreOrders </Text>
 
       </View>
       <View style={styles.tranButton}>
         <View style={styles.btnContainer}>
           <TouchableOpacity style={styles.vegbtn}  ><Text style={styles.vegtxt} >Vegetables</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.fruitbtn} onPress={() => router.replace('./fruitPreorder')}  ><Text style={styles.fruittxt} >Fruits</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.fruitbtn} onPress={() => router.replace('./AcceptedFruitPreoder')}  ><Text style={styles.fruittxt} >Fruits</Text></TouchableOpacity>
         </View>
       </View>
 
@@ -184,11 +184,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   header: {
-    backgroundColor: '#89fc00',
+    backgroundColor: '#28AC60',
     height: 120
   },
   tabBar: {
-    height: 75,
+   height:75,
   },
 
 
@@ -201,59 +201,66 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginLeft: 10
   },
-  hello: {
-    fontSize: 20,
-    fontWeight: '500'
+  hello:{
+  fontSize:20,
+  fontWeight:'500',
+  marginLeft:5
   },
-  welcome: {
-    marginTop: 10,
-    fontSize: 16,
-    fontWeight: '400'
+  welcome:{
+    marginTop:10,
+  fontSize:16,
+  fontWeight:'400'
   },
-  tranButton: {
-    backgroundColor: '#89fc00',
-    marginBottom: 10,
-    padding: 5
+  tranButton:{
+    backgroundColor: '#28AC60',
+   marginBottom:10,
+    padding:5
   },
-  vegbtn: {
-    height: 35,
-    width: '50%',
-    backgroundColor: '#29bf12',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+  vegbtn:{
+   
 
-
-    borderRadius: 20,
-    elevation: 10
-
-  },
-  fruitbtn: {
-    height: 34.5,
-    width: '50%',
-
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+    height:35,
+    width:'50%',
+    backgroundColor:'green',
+    display:'flex',
+    justifyContent:'center',
+     alignItems:'center',
+   
+    
+     borderRadius:20,
+   elevation:10
 
   },
-  fruittxt: {
-    fontSize: 22,
-    fontWeight: '400'
+  fruitbtn:{
+    height:34.5,
+    width:'50%',
+   
+    display:'flex',
+    justifyContent:'center',
+    alignItems:'center',
+
+   
+    
   },
-  vegtxt: {
-    fontSize: 25,
-    fontWeight: '500',
-    color: 'white'
+  fruittxt:{
+    fontSize:17,
+    fontWeight:'400',
+    color:'black'
   },
-  btnContainer: {
+  vegtxt:{
+    fontSize:22,
+    fontWeight:'500',
+     color:'white'
+   
+  },
+  btnContainer:{
     height: 34,
-    display: 'flex',
-    flexDirection: 'row',
-    backgroundColor: '#f7cad0',
-    borderRadius: 20,
-    marginHorizontal: 10,
-
+    display:'flex',
+    flexDirection:'row',
+    backgroundColor:'#b7efc5',
+    borderRadius:20,
+    marginHorizontal:10,
+  
   },
   Listcontainer: {
     flex: 1,

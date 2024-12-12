@@ -123,7 +123,7 @@ const  fruitPreorder = () => {
        <View>
         <View><Text style={styles.hello}> Hello {userName}</Text></View>
        </View>
-       <Text style={{fontSize:25,fontWeight:'600',color:'white'}}>My Fruit  Products</Text>
+       <Text style={{fontSize:25,fontWeight:'500',color:'black',marginLeft:12}}>Fruit  PreOrders</Text>
         
       </View>
       <View style={styles.tranButton}>
@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   header: {
-    backgroundColor: '#ff0000',
+    backgroundColor: '#28AC60',
     height: 120
   },
   tabBar: {
@@ -192,7 +192,8 @@ const styles = StyleSheet.create({
   },
   hello:{
   fontSize:20,
-  fontWeight:'500'
+  fontWeight:'500',
+  marginLeft:5
   },
   welcome:{
     marginTop:10,
@@ -200,7 +201,7 @@ const styles = StyleSheet.create({
   fontWeight:'400'
   },
   tranButton:{
-    backgroundColor: '#ff0000',
+    backgroundColor: '#28AC60',
    marginBottom:10,
     padding:5
   },
@@ -217,7 +218,7 @@ const styles = StyleSheet.create({
   
     height:35,
     width:'50%',
-    backgroundColor:'#9d0208',
+    backgroundColor:'green',
     display:'flex',
     justifyContent:'center',
      alignItems:'center',
@@ -228,12 +229,12 @@ const styles = StyleSheet.create({
     
   },
   fruittxt:{
-    fontSize:25,
+    fontSize:22,
     fontWeight:'500',
      color:'white'
   },
   vegtxt:{
-    fontSize:22,
+    fontSize:17,
     fontWeight:'400',
     color:'black'
   },
@@ -241,7 +242,7 @@ const styles = StyleSheet.create({
     height: 34,
     display:'flex',
     flexDirection:'row',
-    backgroundColor:'#f7cad0',
+    backgroundColor:'#b7efc5',
     borderRadius:20,
     marginHorizontal:10,
   
@@ -324,7 +325,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 10,
     elevation: 2,
-    marginLeft: 160,
+    marginLeft: 130,
     marginTop: -30
   },
 

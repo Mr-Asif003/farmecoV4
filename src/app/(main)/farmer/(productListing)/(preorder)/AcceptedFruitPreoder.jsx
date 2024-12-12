@@ -113,27 +113,30 @@ const  AcceptedFruitPreorder = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.openDrawer()} // Opens the right-side drawer
-        >
-          <FontAwesome name="align-left" color="#000" size={24} />
-        </TouchableOpacity>
-       <View>
-        <View><Text style={styles.hello}> Hello {userName}</Text></View>
-       </View>
-       <Text style={{fontSize:25,fontWeight:'600',color:'white'}}>My Fruit  Products</Text>
-        
+    <View style={styles.header}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.openDrawer()} // Opens the right-side drawer
+      >
+        <FontAwesome name="align-left" color="#000" size={24} />
+      </TouchableOpacity>
+     <View>
+      <View><Text style={styles.hello}> Hello {userName}</Text></View>
+     </View>
+     <Text style={{fontSize:25,fontWeight:'500',color:'black',marginLeft:12}}>Accepted Fruit  PreOrders</Text>
+      
+    </View>
+    <View style={styles.tranButton}>
+      <View style={styles.btnContainer}>
+      <TouchableOpacity style={styles.vegbtn} onPress={()=>router.replace('./AcceptedPreorder')}  ><Text style={styles.vegtxt} >Vegetables</Text></TouchableOpacity>
+      <TouchableOpacity style={styles.fruitbtn} ><Text style={styles.fruittxt} >Fruits</Text></TouchableOpacity>
       </View>
-      <View style={styles.tranButton}>
-        <View style={styles.btnContainer}>
-        <TouchableOpacity style={styles.vegbtn} onPress={()=>router.replace('./Preorder')}  ><Text style={styles.vegtxt} >Vegetables</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.fruitbtn} ><Text style={styles.fruittxt} >Fruits</Text></TouchableOpacity>
-        </View>
-        </View>
+      </View>
 
-        {/* tabbar */}
+      {/* tabbar */}
+
+
+
 
 
 
@@ -173,7 +176,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   header: {
-    backgroundColor: '#ff0000',
+    backgroundColor: '#28AC60',
     height: 120
   },
   tabBar: {
@@ -192,7 +195,8 @@ const styles = StyleSheet.create({
   },
   hello:{
   fontSize:20,
-  fontWeight:'500'
+  fontWeight:'500',
+  marginLeft:10
   },
   welcome:{
     marginTop:10,
@@ -200,7 +204,7 @@ const styles = StyleSheet.create({
   fontWeight:'400'
   },
   tranButton:{
-    backgroundColor: '#ff0000',
+    backgroundColor: '#28AC60',
    marginBottom:10,
     padding:5
   },
@@ -217,7 +221,7 @@ const styles = StyleSheet.create({
   
     height:35,
     width:'50%',
-    backgroundColor:'#9d0208',
+    backgroundColor:'green',
     display:'flex',
     justifyContent:'center',
      alignItems:'center',
@@ -228,7 +232,7 @@ const styles = StyleSheet.create({
     
   },
   fruittxt:{
-    fontSize:25,
+    fontSize:20,
     fontWeight:'500',
      color:'white'
   },
@@ -241,7 +245,7 @@ const styles = StyleSheet.create({
     height: 34,
     display:'flex',
     flexDirection:'row',
-    backgroundColor:'#f7cad0',
+    backgroundColor:'#b7efc5',
     borderRadius:20,
     marginHorizontal:10,
   

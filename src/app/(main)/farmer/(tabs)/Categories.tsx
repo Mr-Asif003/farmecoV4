@@ -20,7 +20,7 @@ import CropTypeSelection from '../(productListing)/CropTypes';
 import SelectFruits from '../(productListing)/SelectFruits';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Preorder from '../(productListing)/(preorder)/Preorder';
-
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 
 const Categories = () => {
@@ -86,7 +86,7 @@ const Categories = () => {
 
 
                       <TouchableOpacity style={styles.buttonView} onPress={()=>router.push('../(productListing)/SelectVeg')}>
-                      <Octicons name="plus-circle" color="#000" size={30} />
+                      <Octicons name="plus-circle" color="#000" size={24} />
                       </TouchableOpacity>
 
                     </View>
@@ -106,7 +106,7 @@ const Categories = () => {
                <View style={styles.sellContainer}>
                  <View style={styles.sell}>
 
-                   <View style={styles.title}><Text style={{fontSize:20,fontWeight:'500'}}>My Products</Text></View>
+                   <View style={styles.title}><Text style={{fontSize:15,fontWeight:'500'}}>My Products</Text></View>
                    <View style={styles.option}>
 
                      <TouchableOpacity style={styles.threeDotView}>
@@ -134,7 +134,7 @@ const Categories = () => {
                <View style={styles.sellContainer}>
                  <View style={styles.sell}>
 
-                   <View style={styles.title}><Text style={{fontSize:23,fontWeight:'500'}}> Pre   order's</Text></View>
+                   <View style={styles.title}><Text style={{fontSize:15,fontWeight:'500'}}> Pre   order's</Text></View>
                    <View style={styles.option}>
 
                      <TouchableOpacity style={styles.threeDotView}>
@@ -143,7 +143,7 @@ const Categories = () => {
 
 
                      <TouchableOpacity onPress={()=>router.push('../(productListing)/(preorder)/Preorder')} style={styles.buttonView}>
-                         <Text style={{fontSize:22,fontWeight:'500'}}>-></Text>
+                     <AntDesign name="arrowright" color="#000" size={24} />
                      </TouchableOpacity>
 
                    </View>
@@ -162,7 +162,7 @@ const Categories = () => {
                <View style={styles.sellContainer}>
                  <View style={styles.sell}>
 
-                   <View style={styles.title}><Text style={{fontSize:18,fontWeight:'600'}}>Subscriotions Farming</Text></View>
+                   <View style={styles.title}><Text style={{fontSize:15,fontWeight:'500'}}>Subscriotions Farming</Text></View>
                    <View style={styles.option}>
 
                      <TouchableOpacity style={styles.threeDotView}>
@@ -171,14 +171,16 @@ const Categories = () => {
 
 
                      <TouchableOpacity style={styles.buttonView}>
-
+                     <AntDesign name="arrowright" color="#000" size={24} />
                      </TouchableOpacity>
 
                    </View>
 
                  </View>
                </View>
-               <View style={styles.iconcontainer}></View>
+               <View style={styles.iconcontainer}>
+               <Image source={require('../../../../assets/images/introman1.png')} style={styles.btnImg3} />
+               </View>
 
              </View>
                
@@ -267,15 +269,16 @@ fontSize:25,
     flexWrap: 'wrap',
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop:-30
   },
   TopContainer: {
-   height:200,
+   height:190,
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    margin:20,
-    marginBottom:0,
+    margin:10,
+    marginBottom:10,
     marginTop:0,
   },
 
@@ -334,8 +337,8 @@ fontSize:25,
     alignItems: 'center',
   },
   titletext: {
-    fontSize: 30,
-    fontWeight: '600',
+    fontSize: 20,
+    fontWeight: '500',
 
   },
   threeDotView: {
@@ -368,8 +371,14 @@ fontSize:25,
     height:70,
     width:80,
     borderRadius:100,
-  }
-
+  },
+  btnImg3: {
+    position: 'absolute',
+    height: 80,
+    width: 50,
+    borderRadius: 100,
+  
+  },
 
 
 

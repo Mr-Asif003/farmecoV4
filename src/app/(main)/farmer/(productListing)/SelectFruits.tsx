@@ -14,6 +14,7 @@ import { useRouter } from 'expo-router';
 import FruitTabBarOption from '@/src/components/molecules/fruitTabBar';
 import { SelectFruitsDB } from '@/src/Database/adminDB/selectFruitDB';
 import FruitListingPage from './FruitListingPage';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 const SelectFruits = () => {
   const navigation = useNavigation()
@@ -105,6 +106,11 @@ const SelectFruits = () => {
          
         </View>
       </ScrollView>
+        <View style={styles.backTruck}> 
+      <TouchableOpacity style={styles.stackIcon} onPress={() => router.replace('./SelectVeg')}>
+                    <AntDesign name="leftsquare" color="#28AC60" size={44} />
+                </TouchableOpacity >
+      </View>
     </View>
   )
 }
@@ -118,7 +124,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   header: {
-    backgroundColor: '#d80032',
+    backgroundColor: '#28AC60',
     height: 120
   },
   tabBar: {
@@ -127,7 +133,11 @@ const styles = StyleSheet.create({
 
 
   mainContainer: {
-
+    height:'100%',
+    width:'100%',
+    display:'flex',
+  flexDirection:'row',
+  justifyContent:'center'
   },
   button: {
     padding: 5,
@@ -145,7 +155,7 @@ const styles = StyleSheet.create({
   fontWeight:'400'
   },
   tranButton:{
-    backgroundColor: '#d80032',
+    backgroundColor: '#28AC60',
    marginBottom:10,
     padding:5
   },
@@ -162,7 +172,7 @@ const styles = StyleSheet.create({
   
     height:35,
     width:'50%',
-    backgroundColor:'#9d0208',
+    backgroundColor:'#29bf12',
     display:'flex',
     justifyContent:'center',
      alignItems:'center',
@@ -173,12 +183,12 @@ const styles = StyleSheet.create({
     
   },
   fruittxt:{
-    fontSize:25,
+    fontSize:20,
     fontWeight:'500',
      color:'white'
   },
   vegtxt:{
-    fontSize:22,
+    fontSize:18,
     fontWeight:'400',
     color:'black'
   },
@@ -186,24 +196,24 @@ const styles = StyleSheet.create({
     height: 34,
     display:'flex',
     flexDirection:'row',
-    backgroundColor:'#f7cad0',
+    backgroundColor:'#b7efc5',
     borderRadius:20,
     marginHorizontal:10,
   
   },
   card: {
-    height:175,
+    height:'90%',
     backgroundColor: '#fff',
     borderRadius: 8,
     padding: 16,
     marginRight: 16, // Adds space between cards
-    width: 170, // Set a fixed width for the horizontal cards
+    width: '46%', // Set a fixed width for the horizontal cards
     shadowColor: '#000',
     shadowOpacity: 0.1,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 8,
     elevation: 1,
-    margin:10
+    marginTop:10
   },
   image: {
     width: '100%',
@@ -235,7 +245,15 @@ const styles = StyleSheet.create({
   oddCard: {
     backgroundColor: '#F3E3B0', // Background for odd-indexed items
   },
-  
+  backTruck:{
+    marginLeft:'3%',
+  },
+  stackIcon: {
+    height: 50,
+    
+    marginBottom: 5,
+    marginTop: -13
+},
 
 
 })

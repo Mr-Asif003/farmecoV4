@@ -86,7 +86,7 @@ const CPreListingPage = ({ }: { title: string, id: 'string' }) => {
             setState('');
             setQuantity('');
             setPrice('');
-            router.replace('./SelectVeg');
+            router.replace('./CPreMyProductsVeg');
 
         } catch (error) {
             alert("Error in Listing Crop" + error.message)
@@ -122,7 +122,7 @@ const CPreListingPage = ({ }: { title: string, id: 'string' }) => {
 
                 <View style={styles.title}>
                     <Text style={styles.titleTxt}>{itemtitle}</Text>
-                    <Text style={{ fontSize: 14, fontWeight: '400', marginTop: 0, marginLeft: -20 }}> {itemtitle} market rate is  = {itemRate}</Text>
+                    <Text style={{ fontSize: 14, fontWeight: '400', marginTop: 0, marginLeft: -45 }}> {itemtitle} market rate is  = {itemRate}</Text>
                     </View>
             </View>
 
@@ -140,14 +140,14 @@ const CPreListingPage = ({ }: { title: string, id: 'string' }) => {
 
 <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>   
                 <View style={{ marginTop: 5 }}>
-                    <Text style={{ fontSize: 17, fontWeight: '500' }}>Quantity in KG</Text>
+                    <Text style={{ fontSize: 14, fontWeight: '500' }}>Quantity in KG</Text>
                     <TextInput
                         value={Quantity}
                         onChangeText={setQuantity}
                         placeholder='Quantity in Kg' style={{ backgroundColor: '#BDE7CF', borderRadius: 20, height: 45, width: 230, marginTop: 1, fontSize: 17, paddingLeft: 10 }} />
                 </View>
                 <View style={{ marginTop: 5, marginLeft: 20 }}>
-                        <Text style={{ fontSize: 15, fontWeight: '500', marginLeft: 1 }}>Rating /10</Text>
+                        <Text style={{ fontSize: 14, fontWeight: '500', marginLeft: 1 }}>Rating /10</Text>
                         <TextInput
                             value={Rating}
                             onChangeText={setRating}
@@ -160,7 +160,7 @@ const CPreListingPage = ({ }: { title: string, id: 'string' }) => {
 
                 <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
                     <View style={{ marginTop: 5 }}>
-                        <Text style={{ fontSize: 17, fontWeight: '500' }}>Price Per KG</Text>
+                        <Text style={{ fontSize: 14, fontWeight: '500' }}>Price Per KG</Text>
                         <TextInput
                             value={price}
                             onChangeText={setPrice}
@@ -168,7 +168,7 @@ const CPreListingPage = ({ }: { title: string, id: 'string' }) => {
                     </View>
 
                     <View style={{ marginTop: 5, marginLeft: 20 }}>
-                        <Text style={{ fontSize: 17, fontWeight: '500', marginLeft: 10 }}>Date of Delivery</Text>
+                        <Text style={{ fontSize: 14, fontWeight: '500', marginLeft: 10 }}>Date of Delivery</Text>
                         <TextInput
                         
                             value={dod}
@@ -180,7 +180,7 @@ const CPreListingPage = ({ }: { title: string, id: 'string' }) => {
 
 
                 <View style={{ marginTop: 5 }}>
-                    <Text style={{ fontSize: 17, fontWeight: '500' }}>State</Text>
+                    <Text style={{ fontSize: 14, fontWeight: '500' }}>State</Text>
                     <TextInput
                         value={state}
                         autoCapitalize="characters"
@@ -193,7 +193,7 @@ const CPreListingPage = ({ }: { title: string, id: 'string' }) => {
 
                 <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
                     <View style={{ marginTop: 7 }}>
-                        <Text style={{ fontSize: 17, fontWeight: '500' }}>Phone number</Text>
+                        <Text style={{ fontSize: 14, fontWeight: '500' }}>Phone number</Text>
                         <TextInput
                             value={phone}
                             onChangeText={setPhone}
@@ -202,7 +202,7 @@ const CPreListingPage = ({ }: { title: string, id: 'string' }) => {
 
 
                     <View style={{ marginTop: 7, marginLeft: 20 }}>
-                        <Text style={{ fontSize: 17, fontWeight: '500' }}>Pin Code</Text>
+                        <Text style={{ fontSize: 14, fontWeight: '500' }}>Pin Code</Text>
                         <TextInput
                             value={pinCode}
                             onChangeText={setPinCode}
@@ -210,17 +210,17 @@ const CPreListingPage = ({ }: { title: string, id: 'string' }) => {
                     </View>
                 </View>
                 <View style={{ marginTop: 7, }}>
-                    <Text style={{ fontSize: 17, fontWeight: '500' }}>Address</Text>
+                    <Text style={{ fontSize: 14, fontWeight: '500' }}>Address</Text>
                     <TextInput
                         value={address}
                         onChangeText={setAddress}
                         numberOfLines={3} multiline={true}
                         placeholder='Address' style={{ backgroundColor: '#BDE7CF', borderRadius: 20, height: 55, width: 350, marginTop: 1, fontSize: 20, paddingLeft: 10 }} />
                 </View>
-                <Text style={{ fontSize: 18, fontWeight: '600', marginTop: 10 }}>Total Rupees :- {total}</Text>
+                <Text style={{ fontSize: 14, fontWeight: '600', marginTop: 10 }}>Total Rupees :- {total}</Text>
 
                 <TouchableOpacity style={styles.addbtn} onPress={addProduct}>
-                    <Text style={{ fontSize: 25, color: 'white', fontWeight: '500' }}> ADD </Text>
+                    <Text style={{ fontSize: 20, color: 'white', fontWeight: '500' }}> ADD </Text>
                 </TouchableOpacity>
 
 
@@ -229,7 +229,7 @@ const CPreListingPage = ({ }: { title: string, id: 'string' }) => {
 
 
 
-                <TouchableOpacity style={styles.stackIcon} onPress={() => router.replace('./SelectVeg')}>
+                <TouchableOpacity style={styles.stackIcon} onPress={() => router.replace('./CPreSelectVeg')}>
                     <AntDesign name="leftsquare" color="green" size={44} />
                 </TouchableOpacity >
             </View>
@@ -239,53 +239,60 @@ const CPreListingPage = ({ }: { title: string, id: 'string' }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        height:'100%',
+        width:'100%',
+        position:'relative'
     },
     topContainer: {
-        height: 200,
+        
+        height:'20%',
+        width:'100%',
         backgroundColor: '#89fc00'
     },
     bottomContainer: {
-        marginTop: 60,
-
+        
+        marginTop:'15%',
+        width:'100%',
         height: 700,
         display: 'flex',
         alignItems: 'flex-start',
         padding: 10,
     },
     image: {
-        height: 300,
-        width: 300,
-        borderRadius: 150,
-        marginTop: -70,
-        marginLeft: -70
+        height:'320%',
+        width: '65%',
+        borderRadius: 200,
+        marginTop:'-13%',
+        marginLeft: '-15%'
     },
     title: {
-        marginLeft: 230,
-        marginTop: -40,
+        marginLeft: "60%",
+        marginTop: 77,
+        height:50
         
     },
     titleTxt: {
-        fontSize: 40,
+        fontSize: 25,
         fontWeight: '600'
     },
     txtInput: {
         backgroundColor: '#BDE7CF',
-        height: 80,
-        width: 350,
+        height: '10%',
+        width:'95%',
         borderRadius: 20,
         fontSize: 18,
     },
     addbtn: {
         height: 50,
         backgroundColor: '#28AC60',
-        width: 150,
+        width:'30%',
         borderRadius: 20,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         elevation: 10,
         marginTop: 10,
-        marginLeft: 240,
+        marginLeft: 230,
     },
     stackIcon: {
         height: 50,
